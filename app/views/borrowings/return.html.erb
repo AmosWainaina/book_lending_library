@@ -1,0 +1,8 @@
+<h1>Return a Book</h1>
+<p>Are you sure you want to return the book?</p>
+<%= form_with model: @borrowing, url: return_borrowing_path(@borrowing), method: :patch do |form| %>
+  <div>
+    <%= form.submit "Return" %>
+  </div>
+<% end %>
+<%= link_to 'Cancel', books_path %>

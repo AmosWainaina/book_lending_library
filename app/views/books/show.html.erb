@@ -1,0 +1,15 @@
+<h1><%= @book.title %></h1>
+<p><strong>Author:</strong> <%= @book.author %></p>
+<p><strong>Available:</strong> <%= @book.available ? 'Yes' : 'No' %></p>
+
+<h2>Borrowing History</h2>
+<% @book.borrowings.each do |borrowing| %>
+  <p>
+    <strong>Borrower:</strong> <%= borrowing.borrower_name %><br>
+    <strong>Borrowed At:</strong> <%= borrowing.borrowed_at %><br>
+    <strong>Returned At:</strong> <%= borrowing.returned_at.present? ? borrowing.returned_at : 'Not Returned' %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_book_path(@book) %>
+<%= link_to 'Back to All Books', books_path %>
